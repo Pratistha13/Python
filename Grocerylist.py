@@ -1,4 +1,5 @@
-
+# create a small grocery shopping list with the list datastructure. In short, create a program that 
+# allows the user to (1) add products to the list, (2) remove items and (3) print the list and quit.
 
 mylist = []
 while True:
