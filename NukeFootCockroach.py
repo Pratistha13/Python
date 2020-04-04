@@ -1,4 +1,4 @@
-from random import randint
+import random
 
 """
 Implement the game so that the other player is computer controlled, 
@@ -13,46 +13,61 @@ win = 0
 loss = 0
 tie = 0
 count = 0
-choice = ["Foot", "Nuke", "Cockroach"]
+while True:
+    you = input("Foot, Nuke or Cockroach? (Quit ends): ")
 
-you = input("Foot, Nuke or Cockroach? (Quit ends): ")
-computer = choice[randint(0, 2)]
-while you != "Quit":
-    print("You chose: ", you)
-    print("Computer chose:  ", computer)
-    if you == computer == "Nuke":
-        print("Both LOSE!")
-        tie = tie+1
-    elif you == computer:
-        print("It is a tie!")
-        tie = tie+1
-    elif you == "Foot":
-        if computer == "Nuke":
-            print("You LOSE!")
-            loss = loss+1
-        else:
-            print("You WIN!")
-            win = win+1
-    elif you == "Nuke":
-        if computer == "Cockroach":
-            print("You LOSE!")
-            loss = loss+1
-        else:
-            print("You WIN!")
-            win = win+1
-    elif you == "Cockroach":
-        if computer == "Foot":
-            print("You LOSE!")
-            loss = loss+1
-        else:
-            print("You WIN")
-            win = win+1
-    else:
+    if you == "Quit":
+        print("You played ", count, " rounds and won ", win, " rounds, playing tie in ", tie, " rounds.")
+        break
+    if you != "Cockroach" and you != "Nuke" and you != "Foot":
         print("Incorrect selection.")
-    you = input("Foot,Nuke or Cockroach? (Quit ends): ")
-    computer = choice[randint(0, 2)]
-    count = count+1
+        continue
 
-if you == "Quit":
-    print("You played ", count, " rounds and won ", win, " rounds, playing tie in ", tie, " rounds.")
+    else:
+        computer = random.randint(0, 3)
+        if computer == 1:
+            computer = "Foot"
+        elif computer == 2:
+            computer = "Nuke"
+        else:
+            computer = "Cockroach"
+
+        print("You chose: ", you)
+        print("Computer chose:  ", computer)
+
+        if you == computer == "Nuke":
+            print("Both LOSE!")
+            tie = tie + 1
+        elif you == computer:
+            print("It is a tie!")
+            tie = tie + 1
+        elif you == "Foot":
+            if computer == "Nuke":
+                print("You LOSE!")
+                loss = loss + 1
+            else:
+                print("You WIN!")
+                win = win + 1
+        elif you == "Nuke":
+            if computer == "Cockroach":
+                print("You LOSE!")
+                loss = loss + 1
+            else:
+                print("You WIN!")
+                win = win + 1
+        elif you == "Cockroach":
+            if computer == "Foot":
+                print("You LOSE!")
+                loss = loss + 1
+            else:
+                print("You WIN!")
+                win = win + 1
+
+        else:
+            print(" ")
+
+        count = count + 1
+
+
+
 
