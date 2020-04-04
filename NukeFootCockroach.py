@@ -1,5 +1,14 @@
 from random import randint
 
+"""
+Implement the game so that the other player is computer controlled, 
+and chooses randomly either foot(number 1), cockroach(number 3) or nuke(number 2). 
+Also implement a feature which keeps the score, calculating both rounds the player won, and ties. 
+If the player wins, print "You WIN!", if they loose "You LOSE!". 
+If the round was a tie, either "It is a tie!" or "Both LOSE!", depending on if the tie was caused by a nuke or not. 
+If the player selects "quit", the game ends and the final score is given.
+"""
+
 win = 0
 loss = 0
 tie = 0
