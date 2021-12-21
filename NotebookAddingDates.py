@@ -14,12 +14,15 @@ while True:
     if selection == 1:
         handle = open(myfile, "r")
         contents = handle.read()
+        timenow = time.strftime("%X %x")
+        print(f'{contents}:::{timenow}')
         print(contents + "\n")
         print("(1) Read the notebook \n(2) Add note \n(3) Empty the notebook \n(4) Quit")
 
     elif selection == 2:
         handle = open(myfile, "a")
         addition = input("Write a new note: ")
+        handle.write(addition)
         timenow = time.strftime("%X %x")
         handle.write(addition + ":::" + timenow + "\n")
         handle.close()
